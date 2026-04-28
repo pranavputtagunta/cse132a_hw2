@@ -1,4 +1,4 @@
-SELECT DISTINCT cname AS name, COUNT(l.no) AS loanCount
+SELECT DISTINCT cname AS name, COUNT(lno) AS loanCount
 FROM borrower
 GROUP BY cname
 UNION

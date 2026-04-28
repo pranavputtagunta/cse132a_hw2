@@ -6,7 +6,11 @@ WITH TypeCounts AS (
     UNION
     SELECT type, 0 AS bcnt
     FROM loan
-    WHERE no NOT IN (SELECT lno FROM borrower)
+    WHERE type NOT IN (
+        SELECT l2.type 
+        FROM loan l2, borrower b2 
+        WHERE l2.no = b2.lno
+    )
 )
 SELECT type AS loanType
 FROM TypeCounts
