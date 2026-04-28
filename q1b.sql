@@ -3,5 +3,5 @@ FROM borrower
 GROUP BY cname
 UNION
 SELECT name, 0 AS loanCount
-FROM borrower
-WHERE cname NOT IN (SELECT cname FROM borrower);
+FROM customer
+WHERE name NOT IN (SELECT cname FROM borrower);
